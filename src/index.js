@@ -8,7 +8,6 @@ import axios from "axios";
 
 // ----------------------------------------------
 
-import axios from 'axios';
 import { fetchBreeds, fetchCatByBreed } from './cat-api'; // Імпортуємо функції з cat-api.js
 
 document.addEventListener('DOMContentLoaded', () => {
