@@ -1,0 +1,26 @@
+/* style.css */
+
+/* Стилі для SlimSelect */
+.slim-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Стилі для завантажувача CSS Loaders */
+.loader {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Стилі для повідомлення про помилку в Notiflix */
+.notiflix-notify.failure {
+    background-color: #ff6961;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
