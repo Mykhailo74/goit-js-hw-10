@@ -41,13 +41,13 @@ window.addEventListener('load', () => {
       // Приховуємо завантажувач 
       loader.style.display = 'none';
       // Очищаємо вибірку порід
-      catInfoDiv.innerHTML = '';
+      catInfo.innerHTML = '';
     });
 });
 
 // Функція для відображення інформації про кота
 const displayCatInfo = (breedName, description, temperament, imageUrl) => {
-  catInfoDiv.innerHTML = `
+  catInfo.innerHTML = `
     <img class="cat-img" src="${imageUrl}" alt="${breedName}">
     <h1 class="cat-title">${breedName}</h1>
     <p class="cat-text">Опис: ${description}</p>
@@ -75,7 +75,7 @@ breedSelect.addEventListener('change', () => {
         const temperament = catData[0].breeds[0].temperament;
         const imageUrl = catData[0].url;
 
-        markupCatInfo(breedName, description, temperament, imageUrl);
+        displayCatInfo(breedName, description, temperament, imageUrl);
         // Приховуємо завантажувач після завершення запиту
         loader.style.display = 'none';
       })
@@ -89,6 +89,6 @@ breedSelect.addEventListener('change', () => {
         catInfo.style.display = 'none';
       });
   } else {
-    catInfoDiv.innerHTML = '';
+    catInfo.innerHTML = '';
   }
 });
