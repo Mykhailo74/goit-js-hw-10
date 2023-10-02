@@ -11,7 +11,6 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const errorElement = document.querySelector('.error');
 
-// Функція для заповнення вибірки порід
 const populateBreeds = (breeds) => {
   breeds.forEach((breed) => {
     const option = document.createElement('option');
@@ -22,7 +21,6 @@ const populateBreeds = (breeds) => {
 };
 
 window.addEventListener('load', () => {
-  // Показуємо завантажувач
   loader.style.display = 'block'
   fetchBreeds()
     .then(breeds => {
@@ -30,30 +28,18 @@ window.addEventListener('load', () => {
       new SlimSelect({
         select: '#breedSelect',
       });
-      // Приховуємо завантажувач 
+    
       loader.style.display = 'none';
     })
     .catch(error => {
       Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
-      console.error('Error loading breeds:', error);
-      // Відображаємо повідомлення про помилку
-        errorElement.style.display = 'block';
-      // Приховуємо завантажувач 
-      loader.style.display = 'none';
-      // Очищаємо вибірку порід
+      console.error('Error loading breeds:', error);      
+        errorElement.style.display = 'block';    
+      loader.style.display = 'none';    
       catInfo.innerHTML = '';
     });
 });
 
-// Функція для відображення інформації про кота
-// const displayCatInfo = (breedName, description, temperament, imageUrl) => {
-//   catInfo.innerHTML = `
-//     <img class="cat-img" src="${imageUrl}" alt="${breedName}">
-//     <h1 class="cat-title">${breedName}</h1>
-//     <p class="cat-text">Опис: ${description}</p>
-//     <p class="cat-text"><span class="cat-span">Темперамент: </span>${temperament}</p>
-//     `;
-// };
 const displayCatInfo = (breedName, description, temperament, imageUrl) => {
   catInfo.innerHTML = `
     <div class="cat-container">
@@ -65,20 +51,15 @@ const displayCatInfo = (breedName, description, temperament, imageUrl) => {
   `;
 };
 
-
-
-// Обробник події при виборі породи
 breedSelect.addEventListener('change', () => {
 
   const selectedBreedId = breedSelect.value;
 
   if (selectedBreedId) {
-    // Показуємо завантажувач
     loader.style.display = 'block';
     loader.style.width = '200px';
     loader.style.margin = '0 auto';
 
-    // Приховуємо блок інформації про кота та повідомлення про помилку
     catInfo.style.display = 'none';
     errorElement.style.display = 'none';
 
@@ -91,15 +72,12 @@ breedSelect.addEventListener('change', () => {
 
         displayCatInfo(breedName, description, temperament, imageUrl);
         catInfo.style.display = 'block';
-        // Приховуємо завантажувач після завершення запиту
         loader.style.display = 'none';
       })
       .catch(error => {
         Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
         console.error('Error retrieving cat information:', error);
-        // Відображаємо повідомлення про помилку
         errorElement.style.display = 'block';
-        // Приховуємо завантажувач
         loader.style.display = 'none';
         catInfo.style.display = 'none';
       });

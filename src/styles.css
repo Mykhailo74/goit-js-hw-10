@@ -1,34 +1,7 @@
-/* style.css */
-
-/* Стилі для SlimSelect */
-/* .slim-select {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-} */
 .breed-select {
     max-width: 240px;
     margin: 80px auto 120px;
 }
-
-/* Стилі для завантажувача CSS Loaders */
-/* .loader {
-    text-align: center;
-    margin-top: 20px;
-} */
-
-/* .loader-span {
-    width: 48px;
-    height: 48px;
-    border: 5px solid #212121;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-} */
 
 @keyframes rotation {
     0% {
@@ -40,22 +13,13 @@
     }
 }
 
-/* Стилі для повідомлення про помилку в Notiflix */
-/* .notiflix-notify.failure {
-    background-color: #ff6961;
-    color: #fff;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
-} */
 .cat-info {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 10px;
+    padding: 25px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 35px;
     background-color: #57b8b1;
     border: 1px solid #0d161b;
 }
@@ -64,13 +28,4 @@ img {
     display: block;
     max-width: 100%;
     border: 1px solid #111a1f;
-}
-
-.loader {
-    font-size: 0;
-    position: relative;
-    margin: 20% auto;
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
 }
