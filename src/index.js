@@ -46,14 +46,26 @@ window.addEventListener('load', () => {
 });
 
 // Функція для відображення інформації про кота
+// const displayCatInfo = (breedName, description, temperament, imageUrl) => {
+//   catInfo.innerHTML = `
+//     <img class="cat-img" src="${imageUrl}" alt="${breedName}">
+//     <h1 class="cat-title">${breedName}</h1>
+//     <p class="cat-text">Опис: ${description}</p>
+//     <p class="cat-text"><span class="cat-span">Темперамент: </span>${temperament}</p>
+//     `;
+// };
 const displayCatInfo = (breedName, description, temperament, imageUrl) => {
   catInfo.innerHTML = `
-    <img class="cat-img" src="${imageUrl}" alt="${breedName}">
-    <h1 class="cat-title">${breedName}</h1>
-    <p class="cat-text">Опис: ${description}</p>
-    <p class="cat-text"><span class="cat-span">Темперамент: </span>${temperament}</p>
-    `;
+    <div class="cat-container">
+      <img class="cat-img" src="${imageUrl}" alt="${breedName}" width="700">
+      <h1 class="cat-title">${breedName}</h1>
+      <p class="cat-text" style="width: 700px;">Опис: ${description}</p>
+      <p class="cat-text" style="width: 700px;"><span class="cat-span">Темперамент: </span>${temperament}</p>
+    </div>
+  `;
 };
+
+
 
 // Обробник події при виборі породи
 breedSelect.addEventListener('change', () => {
@@ -63,6 +75,8 @@ breedSelect.addEventListener('change', () => {
   if (selectedBreedId) {
     // Показуємо завантажувач
     loader.style.display = 'block';
+    loader.style.width = '200px';
+    loader.style.margin = '0 auto';
 
     // Приховуємо блок інформації про кота та повідомлення про помилку
     catInfo.style.display = 'none';
@@ -76,6 +90,7 @@ breedSelect.addEventListener('change', () => {
         const imageUrl = catData[0].url;
 
         displayCatInfo(breedName, description, temperament, imageUrl);
+        catInfo.style.display = 'block';
         // Приховуємо завантажувач після завершення запиту
         loader.style.display = 'none';
       })
